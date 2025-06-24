@@ -2,10 +2,13 @@ import React from 'react'
 import { useState, useEffect } from 'react'
 import Header from './Header';
 import Footer from './Footer';
+import { useLocation } from 'react-router-dom';
 
 const Detailpage = () => {
   let [list, setlist] = useState([]);
-  let id = "lp1897";
+  const location = useLocation()
+  let id = location.state.id;
+  console.log(id);
   const fetchdata = async () => {
     try {
       const url = `https://api.liteapi.travel/v3.0/data/hotel?hotelId=${id}&timeout=4`;
@@ -24,7 +27,7 @@ const Detailpage = () => {
       console.error(err);
     }
   }
-  
+
   useEffect(() => {
     fetchdata();
   }, [id])
@@ -34,7 +37,7 @@ const Detailpage = () => {
   const hotelFacilities = list?.hotelFacilities || [];
   return (
     <div className='bg-slate-100'>
-      <Header/>
+      <Header />
       <div className='flex justify-center'>
         <div className='w-280 h-300 border-2  mt-5  '>
           <div className='ml-2 mt-2 font-semibold'><h1>{list.name} Rating:{list.starRating}</h1></div>
@@ -143,22 +146,29 @@ const Detailpage = () => {
               <div className=' ml-6 mt-2 '><h1 className='text-[16px] font-bold'>{rooms[0]?.roomName}</h1></div>
               <div className='mt-0 ml-6'>
                 <span className='text-[12px]  font-medium'>
-                  {rooms[0]?.roomSizeSquare}sq.ft | ({rooms[0]?.roomSizeUnit} size.unit) | {rooms[0]?.bedTypes}</span></div>
+                  {rooms[0]?.roomSizeSquare} sq.ft | ({rooms[0]?.roomSizeUnit}) | {
+                    rooms[0]?.bedTypes?.map((bed, index) => (
+                      <span key={index}>
+                        {bed.quantity}x {bed.bedType} ({bed.bedSize}){index !== rooms[0].bedTypes.length - 1 && ', '}
+                      </span>
+                    ))
+                  }
+                </span></div>
               <div className='flex mt-2 '>
                 <div className='ml-4 mr-2 text-sm'>
                   <li>{rooms[0]?.roomAmenities[0]?.name}</li>
                   <li>{rooms[0]?.roomAmenities[1]?.name}</li>
                   <li>{rooms[0]?.roomAmenities[2]?.name}</li>
-                   <li>{rooms[0]?.roomAmenities[8]?.name}</li>
-                    <li>{rooms[0]?.roomAmenities[11]?.name}</li>
-                  
+                  <li>{rooms[0]?.roomAmenities[8]?.name}</li>
+                  <li>{rooms[0]?.roomAmenities[11]?.name}</li>
+
                 </div>
                 <div className='text-sm ml-2'>
                   <li>{rooms[0]?.roomAmenities[3]?.name}</li>
                   <li>{rooms[0]?.roomAmenities[4]?.name}</li>
                   <li>{rooms[0]?.roomAmenities[5]?.name}</li>
-                   <li>{rooms[0]?.roomAmenities[7]?.name}</li>
-                    <li>{rooms[0]?.roomAmenities[18]?.name}</li>
+                  <li>{rooms[0]?.roomAmenities[7]?.name}</li>
+                  <li>{rooms[0]?.roomAmenities[18]?.name}</li>
                 </div>
               </div>
             </div>
@@ -170,7 +180,7 @@ const Detailpage = () => {
           </div>
         </div>
       </div>
-      <Footer/>
+      <Footer />
     </div>
 
   )
