@@ -48,7 +48,7 @@ const About = () => {
                     </div>
                     <div className="flex flex-col items-center border-2 p-4 shadow-md">
                         <img src={ankit} className="w-24 h-24 object-cover " alt="Ankit Viskarma" />
-                        <span className="mt-2 font-semibold text-amber-400">Ankit Viskarma</span>
+                        <span className="mt-2 font-semibold text-amber-400">Ankit Vishwakarma</span>
                     </div>
                 </div>
 
