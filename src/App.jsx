@@ -5,8 +5,10 @@ import Hotellist from './Hotellist'
 import Homepage from './Homepage'
 import About from './About'
 import { Routes,Route } from 'react-router-dom'
+import Wishlist from './Wishlist'
 
 import './App.css'
+
 
 function App() {
 
@@ -23,6 +25,7 @@ function App() {
         <Route path="/blog" element={<BlogPost />}/>
         <Route path="/detail" element={< Detailpage/>}/>
          <Route path="/about" element={< About/>}/>
+         <Route path="/wishlist" element={< Wishlist/>}/>
       </Routes>
     
     

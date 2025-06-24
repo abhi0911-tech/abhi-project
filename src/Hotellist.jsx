@@ -3,12 +3,20 @@ import Header from './Header';
 import Footer from './Footer';
 import { useNavigate } from 'react-router-dom';
 import { MdOutlineFavorite } from "react-icons/md";
+import { addToWishlist } from './wishlistSlice';
+import { useDispatch, useSelector } from 'react-redux';
+import { TbBackground } from 'react-icons/tb';
 
 const Hotellist = () => {
   const [selected, setSelected] = useState('IN');
   const [results, setResults] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const hotelsPerPage = 5;
+
+  const dispatch = useDispatch();
+  const handleWishlist = (hotel) => {
+    dispatch(addToWishlist(hotel));
+  };
 
   const handleSearch = async (countryCode) => {
     try {
@@ -107,8 +115,9 @@ const Hotellist = () => {
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4" >
           {currentHotels.length > 0 ? (
             currentHotels.map((hotel, index) => (
-              <div key={index} className="border p-4 rounded bg-white shadow "onClick={()=>{detail(hotel)}}   >
-                <h3 className="font-bold text-lg">{hotel.name}</h3>
+              <div key={index} className="border p-4 rounded bg-white shadow "   >
+               <div onClick={()=>{detail(hotel)}}>
+                 <h3 className="font-bold text-lg">{hotel.name}</h3>
                 <p className="text-gray-600">{hotel.city}</p>
                 {hotel.image && (
                   <img
@@ -119,8 +128,9 @@ const Hotellist = () => {
                   />
                   
                 )}
-                <div>
-                  <button className='mt-4 cursor-pointer '><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#BB271A">
+               </div>
+                <div className=' w-10 h-10' onClick={() => { handleWishlist(hotel) () }}>
+                  <button className='mt-4 cursor-pointer'  ><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#BB271A">
                 <path d="m480-120-58-52q-101-91-167-157T150-447.5Q111-500 95.5-544T80-634q0-94 63-157t157-63q52 0 99 22t81
                  62q34-40 81-62t99-22q94 0 157 63t63 157q0 46-15.5 90T810-447.5Q771-395 705-329T538-172l-58 52Zm0-108q96-86
                   158-147.5t98-107q36-45.5 50-81t14-70.5q0-60-40-100t-100-40q-47 0-87 26.5T518-680h-76q-15-41-55-67.5T300-774q-60 0-100
