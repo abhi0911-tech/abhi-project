@@ -20,10 +20,10 @@ const About = () => {
                     <img src='https://plus.unsplash.com/premium_photo-1681487924146-c091598b7e8a?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1
         .0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D' className='ml-2 w-100 h-100' />
                 </div>
-                <div className=' w-100 h-100 ml-90 mt-2 bg-slate-100 border-1'>
+                <div className=' w-full lg:w-[60%] h-auto mt-4 lg:mt-2 lg:ml-12 bg-slate-100'>
                     <div>
-                        <h1 className='text-2xl  font-semibold ml-20'>ABOUT COMPANY</h1>
-                        <p className='mt-2 ml-2 text-[16.5px]'>Welcome to TravelSite, your trusted travel companion! 
+                        <h1 className='text-2xl font-semibold text-center lg:text-left ml-0 lg:ml-20'>ABOUT COMPANY</h1>
+                        <p className='mt-2 ml-0 lg:ml-2 text-[16.5px] text-justify'>Welcome to TravelSite, your trusted travel companion! 
                             We specialize in crafting unforgettable travel experiences tailored to your dreams.
                              Whether it's serene beaches, bustling cities, or adventurous mountain getaways, 
                              we bring your travel vision to life with seamless planning and personalized service.

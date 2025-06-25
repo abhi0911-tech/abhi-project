@@ -37,12 +37,13 @@ const Detailpage = () => {
   const hotelFacilities = list?.hotelFacilities || [];
   return (
     <div className='bg-slate-100'>
-      <Header />
-      <div className='flex justify-center'>
-        <div className='w-280 h-300 border-2  mt-5  '>
-          <div className='ml-2 mt-2 font-semibold'><h1>{list.name} Rating:{list.starRating}</h1></div>
+  <Header />
+  <div className='flex justify-center px-2 sm:px-4 md:px-8'>
+    <div className='w-full max-w-screen-xl border-2 mt-5 p-4'>
+          <div className='ml-2 mt-2 font-semibold'><h1>{list.name}</h1></div>
           <div className='flex'>
-            <div className='ml-2 mt-2 shadow-xl shadow-slate-400 rounded-2xl'><img src={hotelImages[0]?.url} className='w-100 h-80 rounded-2xl border-0' /></div>
+            <div className='ml-2 mt-2 shadow-xl shadow-slate-400 rounded-2xl'><img src={hotelImages[0]?.url} className='w-100 h-80 
+            sm:h-80rounded-2xl border-0' /></div>
             <div className='border-0 h-80 ml-5 gap-y-2  mt-1 '>
               <div className=''><img src={hotelImages[1]?.url} className='w-70 h-40 rounded-2xl mb-4 shadow-xl shadow-slate-400' /></div>
               <div className=''><img src={hotelImages[2]?.url} className='w-70 h-40 rounded-2xl shadow-xl shadow-slate-400' /></div>
@@ -50,7 +51,7 @@ const Detailpage = () => {
             <div className='flex-wrap'>
               <div className='w-80 h-60 border-1 border-slate-300 rounded-2xl ml-4 shadow-xl shadow-slate-400'>
                 <h1 className='font-semibold ml-4 text-lg'>{rooms[1]?.roomName}</h1>{/*optional chaining */}
-                <div> <p className='text-[12px] ml-2 text-blue-500 font-semibold'>•<span className='ml-1'>{rooms[1]?.description}</span></p></div>
+                <div> <p className='text-[12px] ml-2 text-blue-500 font-semibold'>•<span className='ml-1'>{rooms[1]?.description?.slice(0, 200)}</span></p></div>
                 <div className='ml-2 text-black mt-2'>
                   <li>Room size - <span className='ml-1 text-green-600'>{rooms[1]?.roomSizeSquare} sq.ft</span> </li>
                   <li>Maximum Adult -<span className='ml-1 text-green-600'>{rooms[1]?.maxAdults}</span></li>
