@@ -1,10 +1,10 @@
 import React from 'react'
 import Header from './Header'
-import Banner from './Banner'
 import Footer from './Footer'
 import ayushi from './assets/ayushi.jpg';
 import ankit from './assets/ankit.jpg'
 import abhishek from './assets/abhishek.jpeg'
+import Aboutbanner from './Aboutbanner';
 
 
 
@@ -14,7 +14,7 @@ const About = () => {
             <div className=' bg-slate-100 '>
                 <div className=''>
             <Header />
-            <Banner />
+            <Aboutbanner/>
             <div className='w-full mt-4 flex bg-slate-100'>
                 <div className='mt-2 mb-2 w-90 ml-36 h-85 '>
                     <img src='https://plus.unsplash.com/premium_photo-1681487924146-c091598b7e8a?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1
@@ -47,7 +47,7 @@ const About = () => {
                         <span className="mt-2 font-semibold text-amber-400">Abhishek Sharma</span>
                     </div>
                     <div className="flex flex-col items-center border-2 p-4 shadow-md">
-                        <img src={ankit} className="w-24 h-24 object-cover " alt="Ankit Viskarma" />
+                        <img src={ankit} className="w-24 h-24 object-cover rounded-full " alt="Ankit Viskarma" />
                         <span className="mt-2 font-semibold text-amber-400">Ankit Vishwakarma</span>
                     </div>
                 </div>

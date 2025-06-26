@@ -16,11 +16,10 @@ const Header = () => {
 
         {/* Navigation */}
         <nav className="flex flex-col sm:flex-row items-center gap-4 sm:gap-6">
-          <Link to="/Blog" className="hover:underline">Blogs</Link>
+          <Link to="/blogpost" className="hover:underline">Blogs</Link>
           <Link to="/hotel" className="hover:underline">Hotels</Link>
 
           <Link to="/wishlist" className="flex items-center gap-1 hover:underline">
-            <FaHeart className="text-red-400" />
             Wishlist
           </Link>
 
