@@ -13,9 +13,13 @@ TravelSite is a responsive hotel booking web application built with React and Ta
 - React
 - Tailwind CSS
 - React Router
-- External API for hotel data
+- React Redux
+- External API for hotel data and Blog
 
 ## Author
 1. Abhishek Sharma
 2. Ayushi Jain
 3. Ankit Vishwakarma
+
+## GITHUB link
+- https://github.com/abhi0911-tech/abhi-project
